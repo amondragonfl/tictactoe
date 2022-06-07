@@ -26,7 +26,7 @@ class Board:
             return True
         return False
 
-    def count_empty(self):
+    def count_empty(self) -> int:
         count = 0
         for space in self.state:
             if space not in self.players:
@@ -43,4 +43,3 @@ class Board:
 │ {self.state[6]} │ {self.state[7]} │ {self.state[8]} │
 └───┴───┴───┘
         """)
-        
