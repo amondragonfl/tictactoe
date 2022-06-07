@@ -33,6 +33,12 @@ class Board:
                 count += 1
         return count
 
+    def is_game_over(self) -> bool:
+        for player in self.players:
+            if self.check_win(player):
+                return True
+        return True if self.count_empty() == 0 else False
+
     def display_board(self):
         print(f"""
 ┌───┬───┬───┐
