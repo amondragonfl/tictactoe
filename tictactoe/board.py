@@ -25,4 +25,10 @@ class Board:
         if [player, player, player] in win_conditions:
             return True
         return False
-    
+
+    def count_empty(self):
+        count = 0
+        for space in self.state:
+            if space not in self.players:
+                count += 1
+        return count
