@@ -20,7 +20,7 @@ class Board:
         win_conditions = [
             [self.state[0], self.state[1], self.state[2]],
             [self.state[3], self.state[4], self.state[5]],
-            [self.state[5], self.state[7], self.state[8]],
+            [self.state[6], self.state[7], self.state[8]],
             [self.state[0], self.state[3], self.state[6]],
             [self.state[1], self.state[4], self.state[7]],
             [self.state[2], self.state[5], self.state[8]],
@@ -50,7 +50,7 @@ class Board:
 
     def empty_indices(self) -> list:
         indices = []
-        for index in range(9):
+        for index, square in enumerate(self.state):
             if self.is_empty(index):
                 indices.append(index)
         return indices
