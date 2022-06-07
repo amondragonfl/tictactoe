@@ -28,10 +28,15 @@ class Board:
 
     def count_empty(self) -> int:
         count = 0
-        for space in self.state:
-            if space not in self.players:
+        for index in range(9):
+            if self.is_empty(index):
                 count += 1
         return count
+
+    def is_empty(self, index: int) -> bool:
+        if self.state[index] not in self.players:
+            return True
+        return False
 
     def is_game_over(self) -> bool:
         for player in self.players:
