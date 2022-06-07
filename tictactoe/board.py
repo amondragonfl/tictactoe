@@ -32,3 +32,15 @@ class Board:
             if space not in self.players:
                 count += 1
         return count
+
+    def display_board(self):
+        print(f"""
+┌───┬───┬───┐
+│ {self.state[0]} │ {self.state[1]} │ {self.state[2]} │
+│───│───│───│
+│ {self.state[3]} │ {self.state[4]} │ {self.state[5]} │
+│───│───│───│
+│ {self.state[6]} │ {self.state[7]} │ {self.state[8]} │
+└───┴───┴───┘
+        """)
+        
