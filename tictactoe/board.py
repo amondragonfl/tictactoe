@@ -48,11 +48,12 @@ class Board:
             return True
         return False
 
-    def empty_indices(self):
+    def empty_indices(self) -> list:
         indices = []
         for index in range(9):
             if self.is_empty(index):
                 indices.append(index)
+        return indices
 
     def is_game_over(self) -> bool:
         if self.get_winner() is not None:
