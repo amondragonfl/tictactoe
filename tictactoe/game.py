@@ -17,6 +17,7 @@ def main():
     while not board.is_game_over():
         clear_console()
         board.display_board()
+        print(f"Playing as {x}")
         while True:
             try:
                 player_choice = int(input("Enter a number from 1-9: ")) - 1
