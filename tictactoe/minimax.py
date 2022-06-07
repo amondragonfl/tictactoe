@@ -36,5 +36,4 @@ class Minimax:
         elif self.board.get_winner() == self.player:
             return empty + 1
         else:
-            return -empty - 1
-        
+            return -(empty + 1)
