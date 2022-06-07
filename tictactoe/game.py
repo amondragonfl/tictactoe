@@ -1,5 +1,7 @@
 from board import Board
 from minimax import Minimax
+from colorama import Fore
+import colorama
 import os
 
 
@@ -8,8 +10,9 @@ def clear_console():
 
 
 def main():
-    board = Board()
-    ai_player = Minimax(board, "o")
+    o, x = f"{Fore.LIGHTRED_EX}o{Fore.RESET}", f"{Fore.LIGHTGREEN_EX}x{Fore.RESET}"
+    board = Board([o, x])
+    ai_player = Minimax(board, o)
 
     while not board.is_game_over():
         clear_console()
@@ -20,19 +23,25 @@ def main():
             except ValueError:
                 continue
             if player_choice <= 9 and board.is_empty(player_choice):
-                board.make_move(player_choice, "x")
+                board.make_move(player_choice, x)
                 break
         if not board.is_game_over():
             print("Computer is thinking...")
-            board.make_move(ai_player.best_move(True)[1], "o")
+            board.make_move(ai_player.best_move(True)[1], o)
 
     clear_console()
     board.display_board()
     if board.count_empty() == 0:
-        print("Tie!")
-        return
-    print(f"You lose!")
+        print(f"Tie!")
+    else:
+        print(f"HE HE HE HA, you lost!")
+    input("Press [ENTER] to play again or [CTRL + C] to exit")
+    main()
 
 
 if __name__ == "__main__":
-    main()
+    colorama.init(autoreset=True)
+    try:
+        main()
+    except KeyboardInterrupt:
+        raise SystemExit
