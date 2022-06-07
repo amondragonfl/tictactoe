@@ -31,6 +31,11 @@ class Board:
             return True
         return False
 
+    def get_winner(self) -> str:
+        for player in self.players:
+            if self.check_win(player):
+                return player
+
     def count_empty(self) -> int:
         count = 0
         for index in range(9):
@@ -44,10 +49,9 @@ class Board:
         return False
 
     def is_game_over(self) -> bool:
-        for player in self.players:
-            if self.check_win(player):
-                return True
-        return True if self.count_empty() == 0 else False
+        if self.get_winner() is not None:
+            return True
+        return False
 
     def display_board(self):
         print(f"""
