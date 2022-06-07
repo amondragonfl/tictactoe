@@ -6,7 +6,7 @@ class Board:
     def make_move(self, index: int, player: str) -> None:
         if player not in self.players:
             raise ValueError(f"Invalid player : {player}")
-        if self.state[index] not in self.players:
+        if self.is_empty(index):
             self.state[index] = player
 
     def check_win(self, player: str) -> bool:
