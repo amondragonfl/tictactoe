@@ -56,7 +56,7 @@ class Board:
         return indices
 
     def is_game_over(self) -> bool:
-        if self.get_winner() is not None:
+        if self.get_winner() is not None or self.count_empty() == 0:
             return True
         return False
 
