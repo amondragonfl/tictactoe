@@ -4,13 +4,18 @@ class Board:
         self.players = players if players is not None else ["x", "o"]
 
     def make_move(self, index: int, player: str) -> None:
-        if player not in self.players:
+        if not self.player_exists(player):
             raise ValueError(f"Invalid player : {player}")
         if self.is_empty(index):
             self.state[index] = player
 
+    def player_exists(self, player: str) -> bool:
+        if player in self.players:
+            return True
+        return False
+
     def check_win(self, player: str) -> bool:
-        if player not in self.players:
+        if not self.player_exists(player):
             raise ValueError(f"Invalid player : {player}")
         win_conditions = [
             [self.state[0], self.state[1], self.state[2]],
