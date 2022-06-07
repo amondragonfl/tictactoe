@@ -1,4 +1,5 @@
 from board import Board
+import math
 
 
 class Minimax:
@@ -8,14 +9,11 @@ class Minimax:
         self.player = player
         self.board = board
 
-    def best_move(self):
-        pass
-
     def static_eval(self) -> int:
         empty = self.board.count_empty()
         if self.board.get_winner() is None:
             return 0
         elif self.board.get_winner() == self.player:
-            return empty
+            return empty + 1
         else:
-            return -empty
+            return -empty - 1
